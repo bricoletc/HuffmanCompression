@@ -14,7 +14,17 @@ public:
     HuffmanNode* zero;
     HuffmanNode* one;
 
-    HuffmanNode(int character = NOT_A_CHAR, int count = 0, HuffmanNode* one=NULL, HuffmanNode *zero=NULL);
+    HuffmanNode(int character = NOT_A_CHAR, int count = 0, HuffmanNode* one=NULL, HuffmanNode* zero=NULL);
 };
+
+
+bool operator <(const HuffmanNode& pqe1, const HuffmanNode& pqe2);
+bool operator <=(const HuffmanNode& pqe1, const HuffmanNode& pqe2);
+bool operator ==(const HuffmanNode& pqe1, const HuffmanNode& pqe2);
+bool operator !=(const HuffmanNode& pqe1, const HuffmanNode& pqe2);
+bool operator >(const HuffmanNode& pqe1, const HuffmanNode& pqe2);
+bool operator >=(const HuffmanNode& pqe1, const HuffmanNode& pqe2);
+ostream& operator <<(ostream& out, const HuffmanNode& pqe);
+
 
 #endif

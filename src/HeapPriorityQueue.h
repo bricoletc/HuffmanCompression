@@ -14,12 +14,12 @@ class HeapPriorityQueue {
 public:
     HeapPriorityQueue(int binSize = 10);
     ~HeapPriorityQueue();
-    void changePriority(string value, int newPriority);
+    void changePriority(int character, int newPriority);
     void clear();
-    string dequeue();
-    void enqueue(string value, int priority);
+    HuffmanNode* dequeue();
+    void enqueue(HuffmanNode* hf);
     bool isEmpty() const;
-    string peek() const;
+    int peek() const;
     int peekPriority() const;
     int size() const;
     friend ostream& operator <<(ostream& out, const HeapPriorityQueue& queue);
@@ -27,7 +27,7 @@ public:
 private:
     int binSize;
     int fillPoint;
-    HuffmanNode* binHeap;
+    HuffmanNode** binHeap;
     void bubbleUp(int curPos);
     void bubbleDown(int curPos);
     void HuffmanNodeSwap(int pos1,int pos2);
