@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include <bitstream.h>
+#include "bitstream.h"
 
 using namespace std;
 

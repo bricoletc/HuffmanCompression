@@ -1,25 +1,24 @@
 using namespace std;
-#include <iostream>
-#include <fstream>
-#include <map>
-#include "HeapPriorityQueue.h"
+
+#include "bitstream.h"
+
+
 int main(){
 
+
+	//Declare compression and decompression routines
+	void compress(istream& input, obitstream& output);
+	void decompress(ibitstream& input, ostream& output);
+
+	//Compress
 	ifstream myfile ("example.txt");		
-	map<int, int> buildFrequencyTable(istream& input);
-	map<int,int> freqTable = buildFrequencyTable(myfile);
+	ofbitstream encodedData("Encoded.txt");
+	compress(myfile,encodedData);
+	encodedData.flush();
 
-	HuffmanNode* buildEncodingTree(map <int,int>& freqTable);
-	HuffmanNode* encodingTree = buildEncodingTree(freqTable);	
-
-
-	map<int, string> buildEncodingMap(HuffmanNode* encodingTree);
-	map<int,string> encodingMap=buildEncodingMap(encodingTree);
-
-	
-
-	for (map<int,string>::iterator it=encodingMap.begin(); it!=encodingMap.end(); ++it){
-	      cout << it->first << " => " << it->second << '\n';
-	}
+	//Decompress
+	ifbitstream enData("Encoded.txt");
+	ofstream decodedData("Decoded.txt");
+	decompress(enData,decodedData);
 
 }
